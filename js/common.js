@@ -1,4 +1,4 @@
-let sidemenuItems = [{"item":"Home","link":"home.html"},{"item":"What We Do","link":"#","subItems":[{"item":"Strategic Initiatives","link":"strategicinitiatives.html"},{"item":"Data Analytics","link":"dataanalytics.html"},{"item":"Assessment","link":"assessment.html"},{"item":"Technology","link":"technology.html"}]},{"item":"Faculty & Student Resources","link":"#","subItems":[{"item":"Administrative Assessment","link":"administrativeassessment.html"},{"item":"Faculty Development","link":"facultydevelopment.html"},{"item":"Student Navigator","link":"studentnavigator.html"},{"item":"Cyber-AI Hub","link":"cyber-aihub.html"}]},{"item":"Division for Research","link":"divisionforresearch.html"},{"item":"Contact","link":"contact.html"}]
+let sidemenuItems = [{"item":"Home","link":"home.html"},{"item":"What We Do","link":"#","subItems":[{"item":"Strategic Initiatives","link":"strategicinitiatives.html"},{"item":"Data Analytics","link":"dataanalytics.html"},{"item":"Assessment","link":"assessment.html"},{"item":"Technology","link":"technology.html"}]},{"item":"Faculty & Student Resources","link":"facultystudentresources.html","subItems":[{"item":"Administrative Assessment","link":"administrativeassessment.html"},{"item":"Faculty Development","link":"facultydevelopment.html"},{"item":"Student Navigator","link":"studentnavigator.html"},{"item":"Cyber-AI Hub","link":"cyber-aihub.html"}]},{"item":"Division for Research","link":"divisionforresearch.html"},{"item":"Contact","link":"contact.html"}]
 //SideMenu Start
 //What evet written  before '//SideMenu Start' will be relace with sidemenuItems in automation scripts
 
@@ -9,15 +9,23 @@ let addsidemenu = function(page){
         let item = sidemenuItems[i];
         var addsubmenu = false;
         if(item.hasOwnProperty('subItems')){
-            let subitems = item.subItems;
-            subitems.forEach(element => {
-                if(element.item == page)
-                {
-                    addsubmenu = true;
-                    return;
-                }
-            });
+            if(item == page)
+            {
+                addsubmenu = true;
+            }
+            else
+            {
+                let subitems = item.subItems;
+                subitems.forEach(element => {
+                    if(element.item == page)
+                    {
+                        addsubmenu = true;
+                        return;
+                    }
+                });
+            }
         }
+
         if( addsubmenu == false)
         {
             let link = '';
@@ -43,6 +51,20 @@ let addsidemenu = function(page){
         }
         else
         {
+            if(item == page && item.link != '#')
+            {
+                let menuItem = document.createElement("li");
+                let menuItemContent = '<a href="' + link + '">'+ item.item +'</a>'; 
+                menuItem.innerHTML = menuItemContent;
+                menuItem.classList.add('navigation-items');
+                menuItem.classList.add('hover-highlight');
+                if(page == item.item)
+                {
+                    menuItem.setAttribute("id", "active-page");
+                }
+                sidemenu.appendChild(menuItem);
+            }
+
             let subitems = item.subItems;
             let submenu = '<ul id="sub-navigation-bar">';
             for(var j = 0; j< subitems.length; j++)

@@ -1,4 +1,4 @@
-let requestURL = "data/home.json";
+let requestURL = "data/facultystudentresources.json"
 let request = new XMLHttpRequest();
 //getting content Element to append grants information
 let maincontentContainer = document.getElementsByClassName('main-content')[0];
@@ -14,11 +14,36 @@ request.onload = function(){
     for(let i = 0; i < webelements.length; i++)
     {
         let element = webelements[i]; 
-        if(element.type == 'p')
+        let type = element.type.toLowerCase(); 
+        if(type == 'p')
         {
             content += '<p>' + element.content + '</p>';
         }
-        else if(element.type == 'a' && element.logo != '')
+        else if(type == 'img')
+        {
+            content += '<img src="assets/images/'+ element.content + '" alt="" style="width: 100%;">';
+        }
+        else if(type == 'iframe')
+        {
+            content += '<iframe '+ element.content +'></iframe>';
+        }
+        else if(type == 'ul')
+        { 
+            content += '<ul class="sub-list ' + element.content +'">';
+        }
+        else if(type == 'li')
+        {
+            content += '<li>'+ element.content +'</li>';
+        }
+        else if(type == '/ul')
+        {
+            content += '</ul>';
+        }
+        else if(type == 'a' && !element.hasOwnProperty("logo"))
+        {
+            content +='<a href = "'+ element.source +'">'+ element.content + '</a>';
+        }
+        else if(type == 'a' && element.logo != '')
         {
             if(logostart == true)
             {
@@ -26,9 +51,9 @@ request.onload = function(){
                 logostart = false;
             }
             content +='<div class = "col-xl-4 col-lg-6 col-md-12">'+
-                        '<a href = "'+ element.source +'">'+
+                        '<a target = "_blank" href = "'+ element.source +'">'+
                             '<div class = "home-logo-container">' +
-                                '<img class = "home-logo" src = "assets/logos/home/' + element.logo+ '">'+
+                                '<img class = "home-logo" src = "assets/image/' + element.logo+ '">'+
                                 '<p>'+element.content+'</p>' +
                             '</div>'+
                         '</a>'+

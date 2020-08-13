@@ -243,6 +243,10 @@ Primary use:    Common.css file used for styling header and
     vertical-align: middle;
 }
 
+.purplefont{
+    color:  #46166b;
+}
+
 @media only screen and (max-width: 340px)
 {
     .ualbany-logo{

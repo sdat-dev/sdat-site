@@ -1,4 +1,4 @@
-let headerContent = ""
+let headerContent = {"image":"Header.png","header1":"Office of Strategic Initiatives, Data Analysis, Assessment, and Technology","header2":""}
 //header-content
 addheader =  function(){
     let header = document.getElementById("page-header");
