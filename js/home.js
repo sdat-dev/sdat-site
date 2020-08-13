@@ -14,7 +14,12 @@ request.onload = function(){
     for(let i = 0; i < webelements.length; i++)
     {
         let element = webelements[i]; 
-        if(element.type == 'p')
+        if(element.type == 'header')
+        {
+            let header = document.getElementsByClassName("content-header")[0];
+            header.innerHTML = element.content.toUpperCase();
+        }
+        else if(element.type == 'p')
         {
             content += '<p>' + element.content + '</p>';
         }
