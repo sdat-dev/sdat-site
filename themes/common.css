@@ -69,6 +69,10 @@ Primary use:    Common.css file used for styling header and
     text-transform: uppercase;
 }
 
+.content a{
+    color:#46166C;
+}
+
 .content-header-top-bottom-margin{
     color: #46166C;
     font-family: 'TradeGothicLTStd-BdCn20', Helvetica, Arial, sans-serif;
