@@ -61,6 +61,7 @@ Primary use:    side-navigation.css file used for styling components
 
 #sub-navigation-bar {
     list-style-type: none;
+    text-transform: none;
 }
 
 .first-sub-navigation-item {
