@@ -33,7 +33,7 @@ request.onload = function(){
             content +='<div class = "col-xl-4 col-lg-6 col-md-12">'+
                         '<a href = "'+ element.source +'">'+
                             '<div class = "home-logo-container">' +
-                                '<img class = "home-logo" src = "assets/logos/home/' + element.logo+ '">'+
+                                '<img class = "home-logo" src = "assets/images/home/' + element.logo+ '">'+
                                 '<p>'+element.content+'</p>' +
                             '</div>'+
                         '</a>'+

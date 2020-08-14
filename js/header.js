@@ -26,7 +26,7 @@ addfooter = function(){
                     '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">'+
                         '<div class="footer-logo-wrapper">'+
                             '<a href="https://www.albany.edu/">'+
-                                '<img class="footer-logo" src="assets/logos/logo.png" />'+
+                                '<img class="footer-logo" src="assets/images/logo.png" />'+
                             '</a>'+
                         '</div>'+
                         '<address>'+
