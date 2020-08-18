@@ -1,4 +1,4 @@
-let headerContent = ""
+let headerContent = {"image":"To text show in yellow the text should be enclosed in <span class=\"yellow-font\">…...</span>","header2":""}
 //header-content
 addheader =  function(){
     let header = document.getElementById("page-header");
