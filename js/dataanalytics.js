@@ -1,4 +1,4 @@
-let requestURL = "data/dataanalytics.json"
+let requestURL = "data/dataanalytics.json";
 let request = new XMLHttpRequest();
 //getting content Element to append grants information
 let maincontentContainer = document.getElementsByClassName('main-content')[0];
@@ -92,7 +92,7 @@ let addheader =  function (headers){
                     '<div class="carousel-inner">';
     for(var i =0 ; i < headers.length; i++)
     {
-        image = typeof headers[i].image != 'undefined' && headers[i].image != ''? headers[i].image : image;
+        image = typeof headers[i].logo != 'undefined' && headers[i].logo != ''? headers[i].logo : image;
         header1 =  typeof headers[i].content != 'undefined' && headers[i].content != ''? headers[i].content : header1;
         header2 =  typeof headers[i].subcontent != 'undefined' && headers[i].subcontent != ''? headers[i].subcontent : header2;
         let source = 'assets/images/' + headers[i].source != ''? headers[i].source+'/' : '';
